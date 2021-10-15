@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Patrimony Bank</string>
+    <string name="cpf">CPF</string>
+    <string name="password">Senha</string>
 </resources>
