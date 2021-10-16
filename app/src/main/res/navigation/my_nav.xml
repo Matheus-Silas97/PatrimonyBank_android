@@ -16,9 +16,8 @@
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_splashFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_splashFragment_to_registerActivity"
+            app:destination="@id/registerActivity" />
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
@@ -26,8 +25,8 @@
         android:label="fragment_view_pager"
         tools:layout="@layout/fragment_view_pager" >
         <action
-            android:id="@+id/action_viewPagerFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
+            android:id="@+id/action_viewPagerFragment_to_registerActivity"
+            app:destination="@id/registerActivity"
             app:popUpTo="@id/viewPagerFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -36,4 +35,8 @@
         android:name="com.patrimony.patrimonybank.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <activity
+        android:id="@+id/registerActivity"
+        android:name="com.patrimony.patrimonybank.ui.register.RegisterActivity"
+        android:label="RegisterActivity" />
 </navigation>
