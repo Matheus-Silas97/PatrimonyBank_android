@@ -7,10 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.patrimony.patrimonybank.R
 import com.patrimony.patrimonybank.databinding.FragmentLoginBinding
+import com.patrimony.patrimonybank.utils.BaseFragment
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment() {
 
     private lateinit var binding: FragmentLoginBinding
     private lateinit var viewModel: LoginViewModel
@@ -29,16 +31,16 @@ class LoginFragment : Fragment() {
 
     private fun onClick() {
         binding.btnLogin.setOnClickListener {
-            //TODO fazer lógica dessa budega
+            //TODO fazer lógica de login
             if (viewModel.validateLogin(
                     binding.editCpf.text.toString(),
                     binding.editPassword.text.toString(),
                     requireContext()
                 )
             ) {
-
+                findNavController().navigate(R.id.action_loginFragment2_to_investorsFragment)
             } else {
-
+            showToast("Um erro inesperado")
             }
 
 

@@ -29,9 +29,9 @@ class SplashFragment : Fragment() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             if(onBoardingFinished()){
-                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToRegisterActivity())
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToViewPagerFragment())
             }else{
-                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToNewsFragment())
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToInvestorsFragment())
             }
         }, 3000)
 

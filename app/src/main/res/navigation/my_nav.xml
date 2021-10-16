@@ -16,11 +16,8 @@
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_splashFragment_to_registerActivity"
-            app:destination="@id/registerActivity" />
-        <action
-            android:id="@+id/action_splashFragment_to_newsFragment"
-            app:destination="@id/newsFragment" />
+            android:id="@+id/action_splashFragment_to_investorsFragment"
+            app:destination="@id/investorsFragment" />
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
@@ -28,23 +25,37 @@
         android:label="fragment_view_pager"
         tools:layout="@layout/fragment_view_pager" >
         <action
-            android:id="@+id/action_viewPagerFragment_to_registerActivity"
-            app:destination="@id/registerActivity"
-            app:popUpTo="@id/viewPagerFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_viewPagerFragment_to_loginFragment2"
+            app:destination="@id/loginFragment2" />
     </fragment>
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.patrimony.patrimonybank.ui.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
-    <activity
-        android:id="@+id/registerActivity"
-        android:name="com.patrimony.patrimonybank.ui.register.RegisterActivity"
-        android:label="RegisterActivity" />
+        android:id="@+id/loginFragment2"
+        android:name="com.patrimony.patrimonybank.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment2_to_investorsFragment"
+            app:destination="@id/investorsFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/newsFragment"
-        android:name="com.patrimony.patrimonybank.ui.news.NewsFragment"
-        android:label="fragment_news"
-        tools:layout="@layout/fragment_news" />
+        android:id="@+id/investorsFragment"
+        android:name="com.patrimony.patrimonybank.ui.investors.InvestorsFragment"
+        android:label="fragment_investors"
+        tools:layout="@layout/fragment_investors" >
+        <action
+            android:id="@+id/action_investorsFragment_to_investorsDetailsFragment"
+            app:destination="@id/investorsDetailsFragment" />
+        <action
+            android:id="@+id/action_investorsFragment_to_loginFragment2"
+            app:destination="@id/loginFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/investorsDetailsFragment"
+        android:name="com.patrimony.patrimonybank.ui.investors.InvestorsDetailsFragment"
+        android:label="fragment_investors_details"
+        tools:layout="@layout/fragment_investors_details" >
+        <action
+            android:id="@+id/action_investorsDetailsFragment_to_investorsFragment"
+            app:destination="@id/investorsFragment" />
+    </fragment>
 </navigation>

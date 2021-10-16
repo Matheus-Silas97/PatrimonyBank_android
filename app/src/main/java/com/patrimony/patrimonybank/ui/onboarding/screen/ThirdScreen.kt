@@ -22,7 +22,7 @@ class ThirdScreen : Fragment() {
 
         val viewPager =  activity?.findViewById<ViewPager2>(R.id.viewPager)
 
-        binding.finish.setOnClickListener { findNavController().navigate(R.id.action_viewPagerFragment_to_registerActivity) }
+        binding.finish.setOnClickListener { findNavController().navigate(R.id.action_viewPagerFragment_to_loginFragment2) }
 
         binding.arrowBack.setOnClickListener { viewPager?.currentItem = 1 }
 
