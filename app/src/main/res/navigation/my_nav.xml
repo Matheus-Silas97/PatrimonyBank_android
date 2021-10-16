@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_splashFragment_to_registerActivity"
             app:destination="@id/registerActivity" />
+        <action
+            android:id="@+id/action_splashFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
@@ -39,4 +42,9 @@
         android:id="@+id/registerActivity"
         android:name="com.patrimony.patrimonybank.ui.register.RegisterActivity"
         android:label="RegisterActivity" />
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.patrimony.patrimonybank.ui.news.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
 </navigation>

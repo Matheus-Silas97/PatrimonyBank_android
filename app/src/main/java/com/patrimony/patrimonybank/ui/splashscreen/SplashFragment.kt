@@ -31,7 +31,7 @@ class SplashFragment : Fragment() {
             if(onBoardingFinished()){
                 findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToRegisterActivity())
             }else{
-                findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToNewsFragment())
             }
         }, 3000)
 

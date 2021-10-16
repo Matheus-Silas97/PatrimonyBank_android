@@ -6,4 +6,6 @@
 
     <string name="empty_cpf">Digite o campo CPF</string>
     <string name="empty_password">Digite o campo Senha</string>
+    <string name="txt_last_news">Últimas Notícias</string>
+    <string name="leia_mais">Leia Mais</string>
 </resources>
