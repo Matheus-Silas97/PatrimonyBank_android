@@ -3,16 +3,17 @@ package com.patrimony.patrimonybank.ui.investors
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.patrimony.patrimonybank.api.response.InvestorList
 import com.patrimony.patrimonybank.databinding.ItemInvestimentBinding
 
 class InvestimentAdapter() : RecyclerView.Adapter<InvestimentAdapter.InvestimentViewHolder>() {
 
-    private var investimentList: List<InvestimentModel> = ArrayList()
+    private var investimentList: List<InvestorList> = ArrayList()
 
 
     inner class InvestimentViewHolder(val binding: ItemInvestimentBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(investiment: InvestimentModel) {
+        fun bind(investiment: InvestorList) {
             //TODO implementar itens da lista
             binding.titleInvestiment.text = investiment.a
 
@@ -34,7 +35,7 @@ class InvestimentAdapter() : RecyclerView.Adapter<InvestimentAdapter.Investiment
 
     override fun getItemCount(): Int = investimentList.size
 
-    fun updateTask(taskAdapter: List<InvestimentModel>) {
+    fun updateTask(taskAdapter: List<InvestorList>) {
         this.investimentList = taskAdapter
         notifyDataSetChanged()
     }

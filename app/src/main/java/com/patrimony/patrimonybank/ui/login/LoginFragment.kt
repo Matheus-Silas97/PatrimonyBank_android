@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.patrimony.patrimonybank.R
@@ -26,26 +27,42 @@ class LoginFragment : BaseFragment() {
 
         onClick()
 
+
+
         return binding.root
     }
 
     private fun onClick() {
         binding.btnLogin.setOnClickListener {
-            //TODO fazer lógica de login
-            if (viewModel.validateLogin(
-                    binding.editCpf.text.toString(),
-                    binding.editPassword.text.toString(),
-                    requireContext()
-                )
-            ) {
-                findNavController().navigate(R.id.action_loginFragment2_to_investorsFragment)
-            } else {
-            showToast("Um erro inesperado")
-            }
+            doLogin()
 
+        }
+    }
 
-            //if success
-            onBoardingFinished()
+    private fun doLogin() {
+        if (viewModel.validateLogin(
+                binding.editCpfCnpj.text.toString(),
+                binding.editPassword.text.toString(),
+                requireContext()
+            )
+        ) {
+            viewModel.doLogin(
+                binding.editCpfCnpj.text.toString(),
+                binding.editPassword.text.toString()
+            ).observe(viewLifecycleOwner, Observer {
+                if (it) {
+                    findNavController().navigate(R.id.action_loginFragment2_to_investorsFragment)
+                } else {
+                    viewModel.loginError.observe(viewLifecycleOwner, Observer { msgError ->
+                        showToast(msgError)
+                    })
+                }
+            })
+
+        } else {
+            viewModel.loginError.observe(viewLifecycleOwner, Observer {
+                showToast(it)
+            })
         }
     }
 

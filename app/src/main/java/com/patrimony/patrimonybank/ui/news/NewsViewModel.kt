@@ -2,7 +2,7 @@ package com.patrimony.patrimonybank.ui.news
 
 import androidx.lifecycle.ViewModel
 import com.patrimony.patrimonybank.R
-import com.patrimony.patrimonybank.model.NewsModel
+import com.patrimony.patrimonybank.api.model.NewsModel
 
 class NewsViewModel: ViewModel() {
 

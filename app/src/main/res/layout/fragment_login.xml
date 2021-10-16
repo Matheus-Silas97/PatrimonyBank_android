@@ -18,21 +18,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_layout_cpf"
+        android:id="@+id/input_layout_cpf_cnpj"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="@string/cpf"
+        android:hint="@string/cpf_cnpj"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_cpf_cnpj"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/edit_cpf"
-            android:inputType="number"
-            android:imeOptions="actionNext" />
+            android:imeOptions="actionNext"
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -41,18 +41,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:passwordToggleEnabled="true"
         android:hint="@string/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_layout_cpf">
+        app:layout_constraintTop_toBottomOf="@id/input_layout_cpf_cnpj"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
             android:id="@+id/edit_password"
-            android:inputType="textPassword"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:imeOptions="actionDone" />
+            android:imeOptions="actionDone"
+            android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -62,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Entrar"
+        android:text="@string/login"
         app:layout_constraintTop_toBottomOf="@id/input_layout_password" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

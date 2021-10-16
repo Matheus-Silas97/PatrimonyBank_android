@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.patrimony.patrimonybank.databinding.ItemNewsBinding
-import com.patrimony.patrimonybank.model.NewsModel
+import com.patrimony.patrimonybank.api.model.NewsModel
 
 class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
