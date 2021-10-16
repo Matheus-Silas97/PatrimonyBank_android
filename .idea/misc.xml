@@ -7,6 +7,7 @@
         <entry key="..\:/Users/Master/AndroidStudioProjects/PatrimonyBank/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Master/AndroidStudioProjects/PatrimonyBank/app/src/main/res/layout/activity_register.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Master/AndroidStudioProjects/PatrimonyBank/app/src/main/res/layout/activity_splash.xml" value="0.1361111111111111" />
+<<<<<<< HEAD
         <entry key="..\:/Users/marlo/AndroidStudioProjects/PatrimonyBank_android/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marlo/AndroidStudioProjects/PatrimonyBank_android/app/src/main/res/layout/activity_splash.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marlo/AndroidStudioProjects/PatrimonyBank_android/app/src/main/res/layout/fragment_first_screen.xml" value="0.20520833333333333" />
@@ -15,6 +16,10 @@
         <entry key="..\:/Users/marlo/AndroidStudioProjects/PatrimonyBank_android/app/src/main/res/layout/fragment_splash.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marlo/AndroidStudioProjects/PatrimonyBank_android/app/src/main/res/layout/fragment_third_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marlo/AndroidStudioProjects/PatrimonyBank_android/app/src/main/res/layout/fragment_view_pager.xml" value="0.36666666666666664" />
+=======
+        <entry key="..\:/Users/Matheus/Documents/ProjetosAndroid/PatrimonyBank_android/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Matheus/Documents/ProjetosAndroid/PatrimonyBank_android/app/src/main/res/layout/item_no_result.xml" value="0.16847826086956522" />
+>>>>>>> 52dfe67e14d914f16c80fcbfe5c3025707741335
       </map>
     </option>
   </component>
