@@ -3,4 +3,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cpf">CPF</string>
     <string name="password">Senha</string>
+
+    <string name="empty_cpf">Digite o campo CPF</string>
+    <string name="empty_password">Digite o campo Senha</string>
 </resources>

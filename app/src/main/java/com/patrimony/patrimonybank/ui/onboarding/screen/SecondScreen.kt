@@ -21,7 +21,8 @@ class SecondScreen : Fragment() {
 
         val viewPager =  activity?.findViewById<ViewPager2>(R.id.viewPager)
 
-        binding.next2.setOnClickListener { viewPager?.currentItem = 2 }
+        binding.arrowNext.setOnClickListener { viewPager?.currentItem = 2 }
+        binding.arrowBack.setOnClickListener { viewPager?.currentItem = 0 }
 
         return binding.root
     }

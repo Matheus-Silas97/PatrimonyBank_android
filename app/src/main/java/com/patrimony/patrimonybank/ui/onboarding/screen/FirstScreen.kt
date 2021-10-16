@@ -16,12 +16,12 @@ class FirstScreen : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentFirstScreenBinding.inflate(inflater, container, false)
 
         val viewPager =  activity?.findViewById<ViewPager2>(R.id.viewPager)
 
-        binding.next.setOnClickListener { viewPager?.currentItem = 1 }
+        binding.arrowNext.setOnClickListener { viewPager?.currentItem = 1 }
 
         return binding.root
     }
