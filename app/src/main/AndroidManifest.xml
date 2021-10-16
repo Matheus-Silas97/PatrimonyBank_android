@@ -10,16 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PatrimonyBank">
         <activity
-            android:name=".ui.MainActivity"
-            android:exported="true" />
-        <activity
             android:name=".ui.register.RegisterActivity"
             android:exported="true" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.SplashActivity"
+            android:name=".ui.mainactivity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
