@@ -18,7 +18,7 @@ class InvestimentAdapter() : RecyclerView.Adapter<InvestimentAdapter.Investiment
             binding.txtDocumentNumber.text = "CPF: ${i.cpf}"
 
             binding.layoutInvestiment.setOnClickListener {
-                onItemClickLister?.onClick(i.cpf, i.socialName)
+                onItemClickLister?.onClick(i.cpf!!, i.socialName!!)
             }
         }
     }

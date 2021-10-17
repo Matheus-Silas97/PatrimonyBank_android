@@ -13,4 +13,18 @@
     <string name="login">Entrar</string>
     <string name="pf">Pessoa Física</string>
     <string name="pj">Pessoa Jurídica</string>
+    <string name="nome">Nome</string>
+    <string name="estado_civil">Estado Civil</string>
+    <string name="txt_no">Não Disponível</string>
+    <string name="banco">Banco</string>
+    <string name="cnpj">CNPJ</string>
+    <string name="pais">País</string>
+    <string name="informa_es_de_endere_o">Informações de Endereço</string>
+    <string name="informa_es_pessoais">Informações Pessoais</string>
+    <string name="cidade">Cidade</string>
+    <string name="bairro">Bairro</string>
+    <string name="informa_es_de_contato">Informações de Contato</string>
+    <string name="c_digo_postal">Código Postal</string>
+    <string name="telefones">Telefones</string>
+    <string name="e_mail">E-mail</string>
 </resources>

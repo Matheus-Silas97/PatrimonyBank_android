@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.patrimony.patrimonybank.R
 import com.patrimony.patrimonybank.databinding.FragmentInvestorsBinding
+import com.patrimony.patrimonybank.ui.home.HomeFragmentDirections
 import com.patrimony.patrimonybank.utils.BaseFragment
 import com.patrimony.patrimonybank.utils.Constants
 
@@ -49,10 +50,7 @@ class InvestorsFragment : BaseFragment() {
                         val bundle = Bundle()
                         bundle.putString(Constants.NUMBER_DOCUMENT, documentNumber)
                         bundle.putString(Constants.NAME, name)
-                        findNavController().navigate(
-                            R.id.action_investorsFragment_to_investorsDetailsFragment,
-                            bundle
-                        )
+                        findNavController().navigate(R.id.action_homeFragment_to_investorsDetailsFragment, bundle)
                     }
                 })
             } else {
