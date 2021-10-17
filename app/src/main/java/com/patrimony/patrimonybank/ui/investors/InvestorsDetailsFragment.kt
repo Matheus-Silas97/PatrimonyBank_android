@@ -15,6 +15,7 @@ import com.patrimony.patrimonybank.utils.BaseFragment
 import android.R.attr.defaultValue
 import android.widget.Toast
 import com.patrimony.patrimonybank.utils.Constants
+import com.patrimony.patrimonybank.utils.SharedPreferences
 
 class InvestorsDetailsFragment : BaseFragment() {
 
@@ -31,14 +32,22 @@ class InvestorsDetailsFragment : BaseFragment() {
         binding = FragmentInvestorsDetailsBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this)[InvestimentViewModel::class.java]
 
-        val bundle = Bundle()
+//        val bundle = Bundle()
+//
+//        if (bundle != null) {
+//            documentNumber = bundle.getString(Constants.NUMBER_DOCUMENT).toString()
+//            name = bundle.getString(Constants.NAME).toString()
+//
+//            binding.toolbar.title = name
+//        }
 
-        if (bundle != null) {
-            documentNumber = bundle.getString(Constants.NUMBER_DOCUMENT).toString()
-            name = bundle.getString(Constants.NAME).toString()
+        documentNumber =
+            SharedPreferences.getInstance(requireContext()).getString(Constants.NUMBER_DOCUMENT, "")
+                .toString()
+        name =
+            SharedPreferences.getInstance(requireContext()).getString(Constants.NAME, "").toString()
 
-            binding.toolbar.title = name
-        }
+        binding.toolbar.title = name
 
         onClick()
         details()
@@ -49,26 +58,26 @@ class InvestorsDetailsFragment : BaseFragment() {
     private fun details() {
         viewModel.investorDetails(documentNumber).observe(viewLifecycleOwner, Observer {
             if (it != null) {
-                binding.txtName.text = "Nome: ${it.socialName}"
-                binding.txtMaritalStatus.text = "Status Civil: ${it.maritalStatusCode}"
-                binding.txtSex.text = "Gênero: ${it.sex}"
-                binding.txtDocumentCPF.text = "CPF: ${it.cpf}"
-                binding.txtDocumentCNPJ.text = "CNPJ: ${it.companyCnpj}"
-                binding.txtBrand.text = "Banco: ${it.brandName}"
-                binding.txtCountry.text = "País: ${it.country}"
-                binding.txtCity.text = "Cidade: ${it.townName}"
-                binding.txtDistrict.text = "Bairoo: ${it.districtName}"
-                binding.txtAddress.text = "Rua: ${it.address}"
-                binding.txtPostCode.text = "Cödigo Postal: ${it.postCode}"
-                binding.txtTypePhone1.text = "Tipo telefone 1: ${it.typePhone1}"
-                binding.txtCountryCode.text = "Código pais: ${it.countryCallingCode1}"
-                binding.txtAreaCodePhone1.text = "Código estado: ${it.areaCodePhone1}"
-                binding.txtNumPhone1.text = "Numero telefone 1: ${it.numberPhone1}"
-                binding.txtTypePhone2.text = "Tipo telefone 2: ${it.typePhone2}"
-                binding.txtCountryCodePhone2.text = "Código pais: ${it.countryCallingCode2}"
-                binding.txtAreaCodePhone2.text = "Código estado: ${it.areaCodePhone2}"
-                binding.txtNumPhone2.text = "Numero telefone 1: ${it.numberPhone2}"
-                binding.txtEmail.text = "Email: ${it.email}"
+                binding.txtName.text = it.socialName
+                binding.txtMaritalStatus.text = it.maritalStatusCode
+                binding.txtSex.text = it.sex
+                binding.txtDocumentCPF.text =it.cpf
+                binding.txtDocumentCNPJ.text = it.companyCnpj
+                binding.txtBrand.text = it.brandName
+                binding.txtCountry.text = it.country
+                binding.txtCity.text = it.townName
+                binding.txtDistrict.text = it.districtName
+                binding.txtAddress.text = it.address
+                binding.txtPostCode.text = it.postCode
+                binding.txtTypePhone1.text = it.typePhone1
+                binding.txtCountryCode.text = it.countryCallingCode1
+                binding.txtAreaCodePhone1.text = it.areaCodePhone1
+                binding.txtNumPhone1.text = it.numberPhone1
+                binding.txtTypePhone2.text = it.typePhone2
+                binding.txtCountryCodePhone2.text = it.countryCallingCode2
+                binding.txtAreaCodePhone2.text = it.areaCodePhone2
+                binding.txtNumPhone2.text = it.numberPhone2
+                binding.txtEmail.text = it.email
 
             } else {
                 activity?.onBackPressed()
