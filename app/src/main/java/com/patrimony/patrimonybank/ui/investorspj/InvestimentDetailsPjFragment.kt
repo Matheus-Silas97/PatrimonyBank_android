@@ -11,6 +11,7 @@ import com.patrimony.patrimonybank.R
 import com.patrimony.patrimonybank.databinding.FragmentInvestimentDetailsPjBinding
 import com.patrimony.patrimonybank.ui.investors.InvestimentViewModel
 import com.patrimony.patrimonybank.utils.Constants
+import com.patrimony.patrimonybank.utils.SharedPreferences
 
 class InvestimentDetailsPjFragment : Fragment() {
 
@@ -27,14 +28,22 @@ class InvestimentDetailsPjFragment : Fragment() {
         binding = FragmentInvestimentDetailsPjBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this)[InvestmentPjViewModel::class.java]
 
-        val bundle = Bundle()
+//        val bundle = Bundle()
+//
+//        if (bundle != null) {
+//            documentNumber = bundle.getString(Constants.NUMBER_DOCUMENT)!!
+//            name = bundle.getString(Constants.NAME)!!
+//
+//            binding.toolbar.title = name
+//        }
 
-        if (bundle != null) {
-            documentNumber = bundle.getString(Constants.NUMBER_DOCUMENT)!!
-            name = bundle.getString(Constants.NAME)!!
+        documentNumber =
+            SharedPreferences.getInstance(requireContext()).getString(Constants.NUMBER_DOCUMENT, "")
+                .toString()
+        name =
+            SharedPreferences.getInstance(requireContext()).getString(Constants.NAME, "").toString()
 
-            binding.toolbar.title = name
-        }
+        binding.toolbar.title = name
 
         onClick()
         details()

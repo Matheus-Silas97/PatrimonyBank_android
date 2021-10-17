@@ -16,6 +16,7 @@ import com.patrimony.patrimonybank.ui.investors.InvestimentAdapter
 import com.patrimony.patrimonybank.ui.investors.InvestimentViewModel
 import com.patrimony.patrimonybank.utils.BaseFragment
 import com.patrimony.patrimonybank.utils.Constants
+import com.patrimony.patrimonybank.utils.SharedPreferences
 
 class InvestimentPjFragment : BaseFragment() {
 
@@ -48,12 +49,13 @@ class InvestimentPjFragment : BaseFragment() {
                 adapter.updateTask(it)
                 adapter.addOnItemClickListener(object : InvestimentPjAdapter.OnItemClickListener {
                     override fun onClick(documentNumber: String, name: String) {
-                        val bundle = Bundle()
-                        bundle.putString(Constants.NUMBER_DOCUMENT, documentNumber)
-                        bundle.putString(Constants.NAME, name)
+//                        val bundle = Bundle()
+//                        bundle.putString(Constants.NUMBER_DOCUMENT, documentNumber)
+//                        bundle.putString(Constants.NAME, name)
+                        SharedPreferences.getInstance(requireContext()).saveString(Constants.NUMBER_DOCUMENT, documentNumber)
+                        SharedPreferences.getInstance(requireContext()).saveString(Constants.NAME, name)
                         findNavController().navigate(
-                            R.id.action_investimentPjFragment_to_investimentDetailsPjFragment,
-                            bundle
+                            R.id.action_homeFragment_to_investimentDetailsPjFragment
                         )
                     }
                 })

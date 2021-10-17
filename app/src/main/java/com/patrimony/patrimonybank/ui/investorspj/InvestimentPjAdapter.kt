@@ -3,24 +3,24 @@ package com.patrimony.patrimonybank.ui.investorspj
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.patrimony.patrimonybank.api.response.InvestorPjResponse
+import com.patrimony.patrimonybank.api.response.InvestorsPjResponse2
 import com.patrimony.patrimonybank.databinding.ItemInvestimentBinding
 import com.patrimony.patrimonybank.ui.investors.InvestimentAdapter
 
 class InvestimentPjAdapter() : RecyclerView.Adapter<InvestimentPjAdapter.InvestimentViewHolder>() {
 
-    private var investimentList: List<InvestorPjResponse> = ArrayList()
+    private var investimentList: List<InvestorsPjResponse2> = ArrayList()
 
 
     inner class InvestimentViewHolder(val binding: ItemInvestimentBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(i: InvestorPjResponse) {
-//            binding.txtName.text = "Nome: ${i.brandName}"
-//            binding.txtDocumentNumber.text = "CNPJ: ${i.document.cpfNumber}"
-//
-//            binding.layoutInvestiment.setOnClickListener {
-//                onItemClickLister?.onClick(i.document.cpfNumber, i.brandName)
-//            }
+        fun bind(i: InvestorsPjResponse2) {
+            binding.txtName.text = "Nome: ${i.companyNameval}"
+            binding.txtDocumentNumber.text = "CNPJ: ${i.cnpjNumber}"
+
+            binding.layoutInvestiment.setOnClickListener {
+                onItemClickLister?.onClick(i.cnpjNumber, i.companyNameval)
+            }
         }
     }
 
@@ -36,7 +36,7 @@ class InvestimentPjAdapter() : RecyclerView.Adapter<InvestimentPjAdapter.Investi
 
     override fun getItemCount(): Int = investimentList.size
 
-    fun updateTask(investimentAdapter: List<InvestorPjResponse>) {
+    fun updateTask(investimentAdapter: List<InvestorsPjResponse2>) {
         this.investimentList = investimentAdapter
         notifyDataSetChanged()
     }

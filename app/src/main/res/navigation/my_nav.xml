@@ -66,6 +66,9 @@
         <action
             android:id="@+id/action_homeFragment_to_investorsDetailsFragment"
             app:destination="@id/investorsDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_investimentDetailsPjFragment"
+            app:destination="@id/investimentDetailsPjFragment" />
     </fragment>
     <fragment
         android:id="@+id/investimentDetailsPjFragment"
