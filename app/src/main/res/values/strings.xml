@@ -27,4 +27,5 @@
     <string name="c_digo_postal">Código Postal</string>
     <string name="telefones">Telefones</string>
     <string name="e_mail">E-mail</string>
+    <string name="nome_da_emrpesa">Nome da Emrpesa</string>
 </resources>

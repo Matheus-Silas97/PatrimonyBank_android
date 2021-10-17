@@ -54,7 +54,6 @@ class InvestimentDetailsPjFragment : Fragment() {
     private fun details() {
         viewModel.investorDetailsPJ(documentNumber).observe(viewLifecycleOwner, Observer {
             if (it != null) {
-
 //                binding.txtName.text = it.brandName
 //                binding.txtDocumentNumber.text = it.document.cpfNumber
 //                binding.txtSex.text = it.sex
