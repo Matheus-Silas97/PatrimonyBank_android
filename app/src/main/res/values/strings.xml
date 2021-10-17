@@ -11,4 +11,6 @@
     <string name="logout">Sair</string>
     <string name="cpf_cnpj">CPF/CNPJ</string>
     <string name="login">Entrar</string>
+    <string name="pf">Pessoa Física</string>
+    <string name="pj">Pessoa Jurídica</string>
 </resources>

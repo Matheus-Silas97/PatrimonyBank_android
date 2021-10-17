@@ -40,30 +40,32 @@ class LoginFragment : BaseFragment() {
     }
 
     private fun doLogin() {
-        if (viewModel.validateLogin(
-                binding.editCpfCnpj.text.toString(),
-                binding.editPassword.text.toString(),
-                requireContext()
-            )
-        ) {
-            viewModel.doLogin(
-                binding.editCpfCnpj.text.toString(),
-                binding.editPassword.text.toString()
-            ).observe(viewLifecycleOwner, Observer {
-                if (it) {
-                    findNavController().navigate(R.id.action_loginFragment2_to_investorsFragment)
-                } else {
-                    viewModel.loginError.observe(viewLifecycleOwner, Observer { msgError ->
-                        showToast(msgError)
-                    })
-                }
-            })
+        findNavController().navigate(R.id.action_loginFragment2_to_homeFragment)
 
-        } else {
-            viewModel.loginError.observe(viewLifecycleOwner, Observer {
-                showToast(it)
-            })
-        }
+//        if (viewModel.validateLogin(
+//                binding.editCpfCnpj.text.toString(),
+//                binding.editPassword.text.toString(),
+//                requireContext()
+//            )
+//        ) {
+//            viewModel.doLogin(
+//                binding.editCpfCnpj.text.toString(),
+//                binding.editPassword.text.toString()
+//            ).observe(viewLifecycleOwner, Observer {
+//                if (it) {
+//                    findNavController().navigate(R.id.action_loginFragment2_to_homeFragment)
+//                } else {
+//                    viewModel.loginError.observe(viewLifecycleOwner, Observer { msgError ->
+//                        showToast(msgError)
+//                    })
+//                }
+//            })
+//
+//        } else {
+//            viewModel.loginError.observe(viewLifecycleOwner, Observer {
+//                showToast(it)
+//            })
+//        }
     }
 
 

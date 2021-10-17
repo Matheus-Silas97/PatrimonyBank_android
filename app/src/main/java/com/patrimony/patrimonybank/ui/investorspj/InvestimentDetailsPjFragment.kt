@@ -1,6 +1,5 @@
-package com.patrimony.patrimonybank.ui.investors
+package com.patrimony.patrimonybank.ui.investorspj
 
-import android.R.attr
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,18 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.patrimony.patrimonybank.R
-import com.patrimony.patrimonybank.databinding.FragmentInvestorsDetailsBinding
-import com.patrimony.patrimonybank.utils.BaseFragment
-import android.R.attr.defaultValue
+import com.patrimony.patrimonybank.databinding.FragmentInvestimentDetailsPjBinding
+import com.patrimony.patrimonybank.ui.investors.InvestimentViewModel
 import com.patrimony.patrimonybank.utils.Constants
 
+class InvestimentDetailsPjFragment : Fragment() {
 
-class InvestorsDetailsFragment : BaseFragment() {
-
-    private lateinit var binding: FragmentInvestorsDetailsBinding
-    private lateinit var viewModel: InvestimentViewModel
+    private lateinit var binding: FragmentInvestimentDetailsPjBinding
+    private lateinit var viewModel: InvestmentPjViewModel
 
     private var documentNumber = ""
     private var name = ""
@@ -28,8 +24,8 @@ class InvestorsDetailsFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentInvestorsDetailsBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this)[InvestimentViewModel::class.java]
+        binding = FragmentInvestimentDetailsPjBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this)[InvestmentPjViewModel::class.java]
 
         val bundle = Bundle()
 
@@ -47,14 +43,14 @@ class InvestorsDetailsFragment : BaseFragment() {
     }
 
     private fun details() {
-        viewModel.investorDetails(documentNumber).observe(viewLifecycleOwner, Observer {
+        viewModel.investorDetailsPJ(documentNumber).observe(viewLifecycleOwner, Observer {
             if (it != null) {
-                //TODO continuar os detalhes
-                binding.txtName.text = it.brandName
-                binding.txtDocumentNumber.text = it.document.cpfNumber
-                binding.txtSex.text = it.sex
-                binding.txtCivilName.text = it.civilName
-                binding.txtSocialName.text = it.socialName
+
+//                binding.txtName.text = it.brandName
+//                binding.txtDocumentNumber.text = it.document.cpfNumber
+//                binding.txtSex.text = it.sex
+//                binding.txtCivilName.text = it.civilName
+//                binding.txtSocialName.text = it.socialName
             } else {
                 activity?.onBackPressed()
             }
@@ -69,4 +65,5 @@ class InvestorsDetailsFragment : BaseFragment() {
         }
 
     }
+
 }

@@ -11,6 +11,8 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.patrimony.patrimonybank.R
 import com.patrimony.patrimonybank.databinding.FragmentSplashBinding
+import com.patrimony.patrimonybank.utils.Constants
+import com.patrimony.patrimonybank.utils.SharedPreferences
 
 class SplashFragment : Fragment() {
 
@@ -28,18 +30,17 @@ class SplashFragment : Fragment() {
         binding = FragmentSplashBinding.inflate(inflater, container, false)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            if(onBoardingFinished()){
+            val token =
+                SharedPreferences.getInstance(requireContext()).getString(Constants.TOKEN_KEY, "")
+            if (true) {
                 findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToViewPagerFragment())
-            }else{
-                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToInvestorsFragment())
+            } else {
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
             }
         }, 3000)
 
         return binding.root
     }
 
-    private fun onBoardingFinished(): Boolean{
-        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
-        return sharedPref.getBoolean("Finished", false)
-    }
+
 }

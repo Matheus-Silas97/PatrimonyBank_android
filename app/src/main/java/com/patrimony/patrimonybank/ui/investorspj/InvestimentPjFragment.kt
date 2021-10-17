@@ -1,4 +1,4 @@
-package com.patrimony.patrimonybank.ui.investors
+package com.patrimony.patrimonybank.ui.investorspj
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,23 +11,25 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.patrimony.patrimonybank.R
-import com.patrimony.patrimonybank.databinding.FragmentInvestorsBinding
+import com.patrimony.patrimonybank.databinding.FragmentInvestimentPjBinding
+import com.patrimony.patrimonybank.ui.investors.InvestimentAdapter
+import com.patrimony.patrimonybank.ui.investors.InvestimentViewModel
 import com.patrimony.patrimonybank.utils.BaseFragment
 import com.patrimony.patrimonybank.utils.Constants
 
-class InvestorsFragment : BaseFragment() {
+class InvestimentPjFragment : BaseFragment() {
 
-    private lateinit var binding: FragmentInvestorsBinding
-    private lateinit var viewModel: InvestimentViewModel
+    private lateinit var binding: FragmentInvestimentPjBinding
+    private lateinit var viewModel: InvestmentPjViewModel
 
-    private lateinit var adapter: InvestimentAdapter
+    private lateinit var adapter: InvestimentPjAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentInvestorsBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this)[InvestimentViewModel::class.java]
+        binding = FragmentInvestimentPjBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this)[InvestmentPjViewModel::class.java]
 
         return binding.root
     }
@@ -38,19 +40,19 @@ class InvestorsFragment : BaseFragment() {
     }
 
     private fun buildListInvestors() {
-        viewModel.listInvestment().observe(viewLifecycleOwner, Observer {
+        viewModel.listInvestmentPJ().observe(viewLifecycleOwner, Observer {
             if (!it.isNullOrEmpty()) {
-                adapter = InvestimentAdapter()
+                adapter = InvestimentPjAdapter()
                 binding.recyclerInvestiment.layoutManager = LinearLayoutManager(requireContext())
                 binding.recyclerInvestiment.adapter = adapter
                 adapter.updateTask(it)
-                adapter.addOnItemClickListener(object : InvestimentAdapter.OnItemClickListener {
+                adapter.addOnItemClickListener(object : InvestimentPjAdapter.OnItemClickListener {
                     override fun onClick(documentNumber: String, name: String) {
                         val bundle = Bundle()
                         bundle.putString(Constants.NUMBER_DOCUMENT, documentNumber)
                         bundle.putString(Constants.NAME, name)
                         findNavController().navigate(
-                            R.id.action_investorsFragment_to_investorsDetailsFragment,
+                            R.id.action_investimentPjFragment_to_investimentDetailsPjFragment,
                             bundle
                         )
                     }
@@ -60,6 +62,5 @@ class InvestorsFragment : BaseFragment() {
             }
         })
     }
-
 
 }

@@ -18,10 +18,10 @@ object Apifactory {
         val newRequest = chain.request()
             .newBuilder()
             .header("Content-Type", "application/json")
-            .header(
-                "Authorization",
-                "Bearer ${SharedPreferences.getInstance(PatrimonyApplication.instance!!).getString(Constants.TOKEN_KEY, "") ?: ""}"
-            )
+//            .header(
+//                "Authorization",
+//                "Bearer ${SharedPreferences.getInstance(PatrimonyApplication.instance!!).getString(Constants.TOKEN_KEY, "") ?: ""}"
+//            )
             .url(newUrl)
             .build()
 

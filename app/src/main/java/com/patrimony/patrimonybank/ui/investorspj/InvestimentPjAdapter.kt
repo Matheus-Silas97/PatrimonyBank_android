@@ -1,25 +1,26 @@
-package com.patrimony.patrimonybank.ui.investors
+package com.patrimony.patrimonybank.ui.investorspj
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.patrimony.patrimonybank.api.response.InvestorResponse
+import com.patrimony.patrimonybank.api.response.InvestorPjResponse
 import com.patrimony.patrimonybank.databinding.ItemInvestimentBinding
+import com.patrimony.patrimonybank.ui.investors.InvestimentAdapter
 
-class InvestimentAdapter() : RecyclerView.Adapter<InvestimentAdapter.InvestimentViewHolder>() {
+class InvestimentPjAdapter() : RecyclerView.Adapter<InvestimentPjAdapter.InvestimentViewHolder>() {
 
-    private var investimentList: List<InvestorResponse> = ArrayList()
+    private var investimentList: List<InvestorPjResponse> = ArrayList()
 
 
     inner class InvestimentViewHolder(val binding: ItemInvestimentBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(i: InvestorResponse) {
-            binding.txtName.text = "Nome: ${i.socialName}"
-            binding.txtDocumentNumber.text = "CPF: ${i.document.cpfNumber}"
-
-            binding.layoutInvestiment.setOnClickListener {
-                onItemClickLister?.onClick(i.document.cpfNumber, i.socialName)
-            }
+        fun bind(i: InvestorPjResponse) {
+//            binding.txtName.text = "Nome: ${i.brandName}"
+//            binding.txtDocumentNumber.text = "CNPJ: ${i.document.cpfNumber}"
+//
+//            binding.layoutInvestiment.setOnClickListener {
+//                onItemClickLister?.onClick(i.document.cpfNumber, i.brandName)
+//            }
         }
     }
 
@@ -35,7 +36,7 @@ class InvestimentAdapter() : RecyclerView.Adapter<InvestimentAdapter.Investiment
 
     override fun getItemCount(): Int = investimentList.size
 
-    fun updateTask(investimentAdapter: List<InvestorResponse>) {
+    fun updateTask(investimentAdapter: List<InvestorPjResponse>) {
         this.investimentList = investimentAdapter
         notifyDataSetChanged()
     }

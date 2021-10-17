@@ -3,8 +3,7 @@ package com.patrimony.patrimonybank.ui.investors
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.patrimony.patrimonybank.api.Apifactory
-import com.patrimony.patrimonybank.api.response.InvestorDetailsResponse
-import com.patrimony.patrimonybank.api.response.InvestorList
+import com.patrimony.patrimonybank.api.response.InvestorResponse
 import com.patrimony.patrimonybank.api.service.ApiService
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,13 +13,13 @@ class InvestimentViewModel : ViewModel() {
 
     val apiFactory = Apifactory.create(ApiService::class.java)
 
-    fun listInvestment(): MutableLiveData<List<InvestorList>> {
-        val result = MutableLiveData<List<InvestorList>>()
+    fun listInvestment(): MutableLiveData<List<InvestorResponse>> {
+        val result = MutableLiveData<List<InvestorResponse>>()
 
-       apiFactory.listInvestor().enqueue(object : Callback<List<InvestorList>>{
+       apiFactory.listInvestor().enqueue(object : Callback<List<InvestorResponse>>{
            override fun onResponse(
-               call: Call<List<InvestorList>>,
-               response: Response<List<InvestorList>>
+               call: Call<List<InvestorResponse>>,
+               response: Response<List<InvestorResponse>>
            ) {
                if (response.isSuccessful){
                    result.value = response.body()
@@ -29,7 +28,7 @@ class InvestimentViewModel : ViewModel() {
                }
            }
 
-           override fun onFailure(call: Call<List<InvestorList>>, t: Throwable) {
+           override fun onFailure(call: Call<List<InvestorResponse>>, t: Throwable) {
                result.value = null!!
            }
 
@@ -39,13 +38,13 @@ class InvestimentViewModel : ViewModel() {
     }
 
 
-    fun investorDetails(): MutableLiveData<InvestorDetailsResponse> {
-        val result = MutableLiveData<InvestorDetailsResponse>()
+    fun investorDetails(documentoNumber: String): MutableLiveData<InvestorResponse> {
+        val result = MutableLiveData<InvestorResponse>()
 
-        apiFactory.investorDetails().enqueue(object : Callback<InvestorDetailsResponse>{
+        apiFactory.investorDetails(documentoNumber).enqueue(object : Callback<InvestorResponse>{
             override fun onResponse(
-                call: Call<InvestorDetailsResponse>,
-                response: Response<InvestorDetailsResponse>
+                call: Call<InvestorResponse>,
+                response: Response<InvestorResponse>
             ) {
                 if (response.isSuccessful){
                     result.value = response.body()
@@ -54,7 +53,7 @@ class InvestimentViewModel : ViewModel() {
                 }
             }
 
-            override fun onFailure(call: Call<InvestorDetailsResponse>, t: Throwable) {
+            override fun onFailure(call: Call<InvestorResponse>, t: Throwable) {
                 result.value = null!!
             }
 
