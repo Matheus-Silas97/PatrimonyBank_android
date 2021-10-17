@@ -3,22 +3,22 @@ package com.patrimony.patrimonybank.ui.investors
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.patrimony.patrimonybank.api.response.InvestorResponse
+import com.patrimony.patrimonybank.api.response.InvestorsPFResponse2
 import com.patrimony.patrimonybank.databinding.ItemInvestimentBinding
 
 class InvestimentAdapter() : RecyclerView.Adapter<InvestimentAdapter.InvestimentViewHolder>() {
 
-    private var investimentList: List<InvestorResponse> = ArrayList()
-
+    private var investimentList: List<InvestorsPFResponse2> = ArrayList()
 
     inner class InvestimentViewHolder(val binding: ItemInvestimentBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(i: InvestorResponse) {
+        fun bind(i: InvestorsPFResponse2) {
+
             binding.txtName.text = "Nome: ${i.socialName}"
-            binding.txtDocumentNumber.text = "CPF: ${i.document.cpfNumber}"
+            binding.txtDocumentNumber.text = "CPF: ${i.cpf}"
 
             binding.layoutInvestiment.setOnClickListener {
-                onItemClickLister?.onClick(i.document.cpfNumber, i.socialName)
+                onItemClickLister?.onClick(i.cpf, i.socialName)
             }
         }
     }
@@ -35,7 +35,7 @@ class InvestimentAdapter() : RecyclerView.Adapter<InvestimentAdapter.Investiment
 
     override fun getItemCount(): Int = investimentList.size
 
-    fun updateTask(investimentAdapter: List<InvestorResponse>) {
+    fun updateTask(investimentAdapter: List<InvestorsPFResponse2>) {
         this.investimentList = investimentAdapter
         notifyDataSetChanged()
     }

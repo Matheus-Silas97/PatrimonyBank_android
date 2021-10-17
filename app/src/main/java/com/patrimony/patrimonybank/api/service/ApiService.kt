@@ -3,6 +3,7 @@ package com.patrimony.patrimonybank.api.service
 import com.patrimony.patrimonybank.api.model.LoginModel
 import com.patrimony.patrimonybank.api.response.InvestorPjResponse
 import com.patrimony.patrimonybank.api.response.InvestorResponse
+import com.patrimony.patrimonybank.api.response.InvestorsPFResponse2
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
@@ -17,16 +18,16 @@ interface ApiService {
 
     //Conta PF
     @GET("Account")
-    fun listInvestor(): Call<List<InvestorResponse>>
+    fun listInvestor(): Call<List<InvestorsPFResponse2>>
 
     @GET("Account/{cpf}")
-    fun investorDetails(@Path("cpf") cpf: String): Call<InvestorResponse>
+    fun investorDetails(@Path("cpf") cpf: String): Call<InvestorsPFResponse2>
 
     //Conta PJ
-    @GET("Account")
+    @GET("AccountPJ/")
     fun listInvestorPJ(): Call<List<InvestorPjResponse>>
 
-    @GET("Account/{cnpj}")
+    @GET("AccountPJ/{cnpj}")
     fun investorDetailsPJ(@Path("cnpj") cnpj: String): Call<InvestorPjResponse>
 
 }

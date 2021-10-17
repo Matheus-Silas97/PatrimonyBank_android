@@ -49,12 +49,10 @@ class InvestorsDetailsFragment : BaseFragment() {
     private fun details() {
         viewModel.investorDetails(documentNumber).observe(viewLifecycleOwner, Observer {
             if (it != null) {
-                //TODO continuar os detalhes
-                binding.txtName.text = it.brandName
-                binding.txtDocumentNumber.text = it.document.cpfNumber
+                binding.txtName.text = "Nome: ${it.socialName}"
+                binding.txtDocumentNumber.text = it.cpf
                 binding.txtSex.text = it.sex
                 binding.txtCivilName.text = it.civilName
-                binding.txtSocialName.text = it.socialName
             } else {
                 activity?.onBackPressed()
             }
