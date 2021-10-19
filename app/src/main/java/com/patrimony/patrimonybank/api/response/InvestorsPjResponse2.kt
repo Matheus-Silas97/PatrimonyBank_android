@@ -11,7 +11,7 @@ data class InvestorsPjResponse2(
     val brandName: String,
 
     @SerializedName("companyName")
-    val companyNameval : String,
+    val companyName : String,
 
     @SerializedName("tradeName")
     val tradeName: String,
@@ -57,6 +57,9 @@ data class InvestorsPjResponse2(
 
     @SerializedName("phonesAdditionalInfo")
     val phonesAdditionalInfo: String,
+
+    @SerializedName("phonesCountryCallingCode")
+    val phonesCountryCallingCode: String,
 
     @SerializedName("phonesAreaCode")
     val phonesAreaCode: String,

@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/nome"
+                android:text="@string/bussiness_name"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -76,14 +76,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/estado_civil"
+                android:text="@string/fantasy_name"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_name" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txt_marital_status"
+                android:id="@+id/txt_fantasy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_no"
@@ -92,112 +92,31 @@
                 app:layout_constraintStart_toStartOf="@+id/layout_marital_status"
                 app:layout_constraintTop_toBottomOf="@id/layout_marital_status" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/layout_sex"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Gênero"
-                app:layout_constraintHorizontal_bias="1"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/layout_marital_status"
-                app:layout_constraintTop_toTopOf="@+id/layout_marital_status" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txt_sex"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_no"
-                app:layout_constraintEnd_toEndOf="@+id/layout_sex"
-                app:layout_constraintHorizontal_bias="1"
-                app:layout_constraintStart_toStartOf="@+id/layout_sex"
-                app:layout_constraintTop_toBottomOf="@id/layout_marital_status" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/layout_documentCPF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/cpf"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txt_marital_status" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txt_documentCPF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_no"
-                app:layout_constraintEnd_toEndOf="@+id/layout_documentCPF"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="@+id/layout_documentCPF"
-                app:layout_constraintTop_toBottomOf="@id/layout_documentCPF" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/layout_documentCNPJ"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:text="@string/cnpj"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 app:layout_constraintHorizontal_bias="1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/layout_documentCPF"
-                app:layout_constraintTop_toTopOf="@+id/layout_documentCPF" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_fantasy" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/txt_documentCNPJ"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_no"
-                app:layout_constraintEnd_toEndOf="@+id/layout_documentCNPJ"
                 app:layout_constraintHorizontal_bias="1"
                 app:layout_constraintStart_toStartOf="@+id/layout_documentCNPJ"
                 app:layout_constraintTop_toBottomOf="@id/layout_documentCNPJ" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/layout_brand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/banco"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txt_documentCPF" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txt_brand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_no"
-                app:layout_constraintEnd_toEndOf="@+id/layout_brand"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="@+id/layout_brand"
-                app:layout_constraintTop_toBottomOf="@id/layout_brand" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/layout_country"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/pais"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txt_brand" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txt_country"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_no"
-                app:layout_constraintEnd_toEndOf="@+id/layout_country"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="@+id/layout_country"
-                app:layout_constraintTop_toBottomOf="@id/layout_country" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/information_anddress"
@@ -208,7 +127,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txt_country" />
+                app:layout_constraintTop_toBottomOf="@id/txt_documentCNPJ" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/layout_city"
@@ -237,9 +156,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/bairro"
                 android:textSize="17sp"
-                app:layout_constraintHorizontal_bias="1"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
                 app:layout_constraintStart_toEndOf="@+id/layout_city"
                 app:layout_constraintTop_toTopOf="@+id/layout_city" />
 
@@ -321,8 +240,8 @@
                 android:id="@+id/txt_type_phone1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_no"
                 android:layout_marginTop="8dp"
+                android:text="@string/txt_no"
                 app:layout_constraintEnd_toEndOf="@+id/layout_phone"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@+id/layout_phone"
@@ -352,50 +271,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:text="@string/txt_no"
-                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toEndOf="@+id/txt_area_code_phone1"
                 app:layout_constraintTop_toTopOf="@+id/txt_area_code_phone1" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txt_type_phone2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_no"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/txt_country_code"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="@+id/txt_country_code"
-                app:layout_constraintTop_toBottomOf="@id/txt_country_code" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txt_country_code_phone2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_no"
-                app:layout_constraintEnd_toStartOf="@id/txt_area_code_phone2"
-                app:layout_constraintStart_toStartOf="@+id/txt_type_phone2"
-                app:layout_constraintTop_toBottomOf="@+id/txt_type_phone2" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txt_area_code_phone2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="@string/txt_no"
-                app:layout_constraintStart_toEndOf="@+id/txt_country_code_phone2"
-                app:layout_constraintTop_toTopOf="@+id/txt_country_code_phone2" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txt_num_phone2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:text="@string/txt_no"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/txt_area_code_phone2"
-                app:layout_constraintTop_toTopOf="@+id/txt_area_code_phone2" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/layout_email"
@@ -406,7 +286,7 @@
                 android:textSize="17sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txt_area_code_phone2" />
+                app:layout_constraintTop_toBottomOf="@id/txt_num_phone1" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/txt_email"

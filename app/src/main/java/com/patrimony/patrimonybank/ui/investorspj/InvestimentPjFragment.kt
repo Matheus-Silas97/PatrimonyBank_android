@@ -11,6 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.patrimony.patrimonybank.R
+import com.patrimony.patrimonybank.api.response.InvestorsPFResponse2
+import com.patrimony.patrimonybank.api.response.InvestorsPjResponse2
 import com.patrimony.patrimonybank.databinding.FragmentInvestimentPjBinding
 import com.patrimony.patrimonybank.ui.investors.InvestimentAdapter
 import com.patrimony.patrimonybank.ui.investors.InvestimentViewModel
@@ -32,6 +34,8 @@ class InvestimentPjFragment : BaseFragment() {
         binding = FragmentInvestimentPjBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this)[InvestmentPjViewModel::class.java]
 
+        onClick()
+
         return binding.root
     }
 
@@ -40,8 +44,44 @@ class InvestimentPjFragment : BaseFragment() {
         buildListInvestors()
     }
 
+    private fun onClick() {
+        binding.icSearch.setOnClickListener {
+            if (binding.editSearch.text.toString().isNullOrEmpty()) {
+                buildListInvestors()
+            } else {
+                search(binding.editSearch.text.toString())
+            }
+        }
+    }
+
+    private fun search(documentNumber: String) {
+        viewModel.investorDetailsPJ(documentNumber, requireContext())
+            .observe(viewLifecycleOwner, Observer {
+                if (it != null) {
+                    val list = arrayListOf<InvestorsPjResponse2>()
+                    list.add(it)
+
+                    adapter = InvestimentPjAdapter()
+                    binding.recyclerInvestiment.layoutManager = LinearLayoutManager(requireContext())
+                    binding.recyclerInvestiment.adapter = adapter
+                    adapter.updateTask(list)
+                    adapter.addOnItemClickListener(object : InvestimentPjAdapter.OnItemClickListener {
+                        override fun onClick(documentNumber: String, name: String) {
+                            SharedPreferences.getInstance(requireContext()).saveString(Constants.NUMBER_DOCUMENT, documentNumber)
+                            SharedPreferences.getInstance(requireContext()).saveString(Constants.NAME, name)
+                            findNavController().navigate(
+                                R.id.action_homeFragment_to_investimentDetailsPjFragment
+                            )
+                        }
+                    })
+                } else {
+                    setNoResultAdapter(binding.recyclerInvestiment, "Nenhum investidor encontrado")
+                }
+            })
+    }
+
     private fun buildListInvestors() {
-        viewModel.listInvestmentPJ().observe(viewLifecycleOwner, Observer {
+        viewModel.listInvestmentPJ(requireContext()).observe(viewLifecycleOwner, Observer {
             if (!it.isNullOrEmpty()) {
                 adapter = InvestimentPjAdapter()
                 binding.recyclerInvestiment.layoutManager = LinearLayoutManager(requireContext())
@@ -49,9 +89,6 @@ class InvestimentPjFragment : BaseFragment() {
                 adapter.updateTask(it)
                 adapter.addOnItemClickListener(object : InvestimentPjAdapter.OnItemClickListener {
                     override fun onClick(documentNumber: String, name: String) {
-//                        val bundle = Bundle()
-//                        bundle.putString(Constants.NUMBER_DOCUMENT, documentNumber)
-//                        bundle.putString(Constants.NAME, name)
                         SharedPreferences.getInstance(requireContext()).saveString(Constants.NUMBER_DOCUMENT, documentNumber)
                         SharedPreferences.getInstance(requireContext()).saveString(Constants.NAME, name)
                         findNavController().navigate(

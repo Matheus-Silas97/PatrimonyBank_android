@@ -19,6 +19,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_layout_cpf_cnpj"
+        style="@style/TextInputLayoutTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -31,6 +32,7 @@
             android:id="@+id/edit_cpf_cnpj"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
             android:imeOptions="actionNext"
             android:inputType="number" />
 
@@ -38,6 +40,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_layout_password"
+        style="@style/TextInputLayoutTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -51,6 +54,7 @@
             android:id="@+id/edit_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
             android:imeOptions="actionDone"
             android:inputType="textPassword" />
 

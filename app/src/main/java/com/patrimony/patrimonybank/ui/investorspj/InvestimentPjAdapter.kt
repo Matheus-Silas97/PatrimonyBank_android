@@ -15,11 +15,11 @@ class InvestimentPjAdapter() : RecyclerView.Adapter<InvestimentPjAdapter.Investi
     inner class InvestimentViewHolder(val binding: ItemInvestimentBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(i: InvestorsPjResponse2) {
-            binding.txtName.text = "Nome: ${i.companyNameval}"
+            binding.txtName.text = "Nome: ${i.tradeName}"
             binding.txtDocumentNumber.text = "CNPJ: ${i.cnpjNumber}"
 
             binding.layoutInvestiment.setOnClickListener {
-                onItemClickLister?.onClick(i.cnpjNumber, i.companyNameval)
+                onItemClickLister?.onClick(i.cnpjNumber, i.tradeName)
             }
         }
     }

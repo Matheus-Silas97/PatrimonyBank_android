@@ -28,15 +28,6 @@ class InvestimentDetailsPjFragment : Fragment() {
         binding = FragmentInvestimentDetailsPjBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this)[InvestmentPjViewModel::class.java]
 
-//        val bundle = Bundle()
-//
-//        if (bundle != null) {
-//            documentNumber = bundle.getString(Constants.NUMBER_DOCUMENT)!!
-//            name = bundle.getString(Constants.NAME)!!
-//
-//            binding.toolbar.title = name
-//        }
-
         documentNumber =
             SharedPreferences.getInstance(requireContext()).getString(Constants.NUMBER_DOCUMENT, "")
                 .toString()
@@ -52,18 +43,25 @@ class InvestimentDetailsPjFragment : Fragment() {
     }
 
     private fun details() {
-        viewModel.investorDetailsPJ(documentNumber).observe(viewLifecycleOwner, Observer {
-            if (it != null) {
-
-//                binding.txtName.text = it.brandName
-//                binding.txtDocumentNumber.text = it.document.cpfNumber
-//                binding.txtSex.text = it.sex
-//                binding.txtCivilName.text = it.civilName
-//                binding.txtSocialName.text = it.socialName
-            } else {
-                activity?.onBackPressed()
-            }
-        })
+        viewModel.investorDetailsPJ(documentNumber, requireContext())
+            .observe(viewLifecycleOwner, Observer {
+                if (it != null) {
+                    binding.txtName.text = it.companyName
+                    binding.txtFantasy.text = it.tradeName
+                    binding.txtDocumentCNPJ.text = it.cnpjNumber
+                    binding.txtCity.text = it.adressTownName
+                    binding.txtAddress.text = it.adress
+                    binding.txtDistrict.text = it.adressDistrictName
+                    binding.txtPostCode.text = it.adressPostCode
+                    binding.txtEmail.text = it.email
+                    binding.txtTypePhone1.text = it.phonesType
+                    binding.txtCountryCode.text = it.phonesCountryCallingCode
+                    binding.txtAreaCodePhone1.text = "(${it.phonesAreaCode})"
+                    binding.txtNumPhone1.text = it.phonesNumber
+                } else {
+                    activity?.onBackPressed()
+                }
+            })
     }
 
     private fun onClick() {

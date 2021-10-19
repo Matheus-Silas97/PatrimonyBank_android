@@ -56,7 +56,7 @@ class InvestorsDetailsFragment : BaseFragment() {
     }
 
     private fun details() {
-        viewModel.investorDetails(documentNumber).observe(viewLifecycleOwner, Observer {
+        viewModel.investorDetails(documentNumber, requireContext()).observe(viewLifecycleOwner, Observer {
             if (it != null) {
                 binding.txtName.text = it.socialName
                 binding.txtMaritalStatus.text = it.maritalStatusCode
