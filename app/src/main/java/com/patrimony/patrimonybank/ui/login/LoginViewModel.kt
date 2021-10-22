@@ -32,24 +32,25 @@ class LoginViewModel : ViewModel() {
     fun doLogin(login: String, passoword: String): MutableLiveData<Boolean> {
         val result = MutableLiveData<Boolean>()
 
-        val model = LoginModel(login, passoword)
-
-        apiFactory.doLogin(model).enqueue(object : Callback<ResponseBody> {
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                if (response.isSuccessful) {
-                    result.value = true
-                } else {
-                    result.value = false
-                    loginError.value = ""
-                }
-            }
-
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                result.value = false
-                loginError.value = "Um erro inesperado aconteceu"
-            }
-
-        })
+        result.value = login == "empresateste" && passoword == "123456"
+//        val model = LoginModel(login, passoword)
+//
+//        apiFactory.doLogin(model).enqueue(object : Callback<ResponseBody> {
+//            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+//                if (response.isSuccessful) {
+//                    result.value = true
+//                } else {
+//                    result.value = false
+//                    loginError.value = ""
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+//                result.value = false
+//                loginError.value = "Um erro inesperado aconteceu"
+//            }
+//
+//        })
 
         return result
     }

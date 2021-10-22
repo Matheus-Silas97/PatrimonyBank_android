@@ -27,8 +27,9 @@
     <string name="c_digo_postal">Código Postal</string>
     <string name="telefones">Telefones</string>
     <string name="e_mail">E-mail</string>
-    <string name="loading">Carregando</string>
+    <string name="loading">Carregando...</string>
     <string name="search">Pesquisar</string>
     <string name="bussiness_name">Nome da empresa</string>
     <string name="fantasy_name">Nome fantasia</string>
+    <string name="txt_login">Login</string>
 </resources>

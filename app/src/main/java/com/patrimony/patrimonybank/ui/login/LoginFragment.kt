@@ -35,45 +35,34 @@ class LoginFragment : BaseFragment() {
     private fun onClick() {
         binding.btnLogin.setOnClickListener {
             doLogin()
-
         }
     }
 
     private fun doLogin() {
-        findNavController().navigate(R.id.action_loginFragment2_to_homeFragment)
+        if (viewModel.validateLogin(
+                binding.editCpfCnpj.text.toString(),
+                binding.editPassword.text.toString(),
+                requireContext()
+            )
+        ) {
+            viewModel.doLogin(
+                binding.editCpfCnpj.text.toString(),
+                binding.editPassword.text.toString()
+            ).observe(viewLifecycleOwner, Observer {
+                if (it) {
+                    findNavController().navigate(R.id.action_loginFragment2_to_homeFragment)
+                } else {
+                    viewModel.loginError.observe(viewLifecycleOwner, Observer { msgError ->
+                        showToast(msgError)
+                    })
+                }
+            })
 
-//        if (viewModel.validateLogin(
-//                binding.editCpfCnpj.text.toString(),
-//                binding.editPassword.text.toString(),
-//                requireContext()
-//            )
-//        ) {
-//            viewModel.doLogin(
-//                binding.editCpfCnpj.text.toString(),
-//                binding.editPassword.text.toString()
-//            ).observe(viewLifecycleOwner, Observer {
-//                if (it) {
-//                    findNavController().navigate(R.id.action_loginFragment2_to_homeFragment)
-//                } else {
-//                    viewModel.loginError.observe(viewLifecycleOwner, Observer { msgError ->
-//                        showToast(msgError)
-//                    })
-//                }
-//            })
-//
-//        } else {
-//            viewModel.loginError.observe(viewLifecycleOwner, Observer {
-//                showToast(it)
-//            })
-//        }
-    }
-
-
-    private fun onBoardingFinished() {
-        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
-        editor.putBoolean("Finished", true)
-        editor.apply()
+        } else {
+            viewModel.loginError.observe(viewLifecycleOwner, Observer {
+                showToast(it)
+            })
+        }
     }
 
 }
