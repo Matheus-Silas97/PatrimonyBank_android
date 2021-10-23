@@ -1,3 +1,3 @@
 # PatrimonyBank_android
 
-Aplicativo mobile android criado na  hackathon "Hackatudo BNY Mellon" com o intuito de servir de aplicação Open Banking.
+Aplicativo mobile android criado na  hackathon "Hacktudo BNY Mellon" com o intuito de servir de consulta da API Open Banking.
